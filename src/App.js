@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from "react";
-// import { useEffect } from 'react';
 import './App.css';
 import Axios from "axios";
 
@@ -38,7 +37,7 @@ const deleteName = (nam) => {
 //const pour modifier
   const updateName = (nam)=>{
     Axios.put("http://localhost:3001/api/update", {
-      name: name, 
+      name: nam, 
     });
 
     setNewName("")
@@ -71,12 +70,10 @@ const deleteName = (nam) => {
 
             {/* <input placeholder="Modifier"></input> */}
             <input placeholder="Modifier" type="text" id="updateInput" onChange={(e)=>{
-              setNewName(e.target.value)
+              newName(e.target.value)
             }} />
 
-            <button onClick={()=>{
-              updateName(value.name)
-            }} className="update">Modifier</button>
+            <button onClick={()=>{updateName(value.name)}} className="update">Modifier</button>
           </div>
         )
       })}
