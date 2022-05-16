@@ -32,6 +32,17 @@ app.delete('/api/delete/:name', (req, res)=>{
     });
 });
 
+//fonction pour modifier
+app.put('/api/update', (req, res)=>{
+    const name =  req.body.name;
+    
+    const sqlUpdate = "UPDATE name SET name = ? WHERE name = ?";
+
+    db.query(sqlUpdate,[name], (err, result)=>{
+       if (err) console.log(err);
+    });
+});
+
 app.post("/api/insert", (req, res)=>{
     const name = req.body.name;
 

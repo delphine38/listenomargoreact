@@ -8,6 +8,8 @@ function App() {
 const [name, setName] = useState('');
 const [liste, setList] = useState([]);
 
+const [newName, setNewName] = useState("");
+
 useEffect(()=>{
   Axios.get("http://localhost:3001/api/get")
   .then((Response)=>{
@@ -31,6 +33,16 @@ const submitName = () => {
 const deleteName = (nam) => {
   Axios.delete(`http://localhost:3001/api/delete/${nam}`);
 };
+
+
+//const pour modifier
+  const updateName = (nam)=>{
+    Axios.put("http://localhost:3001/api/update", {
+      name: name, 
+    });
+
+    setNewName("")
+  }
 
   return (
     <div className="App">
@@ -57,13 +69,14 @@ const deleteName = (nam) => {
 
             <button onClick={()=>{deleteName(value.name)}} id="deleteName" className="delete">Supprimer</button>
 
-            <input placeholder="updateInput"></input>
-            {/* <input type="text" id="updateInput" noChange={(e)=>{
-              setName(e.target.value);
-            }} /> */}
+            {/* <input placeholder="Modifier"></input> */}
+            <input placeholder="Modifier" type="text" id="updateInput" onChange={(e)=>{
+              setNewName(e.target.value)
+            }} />
 
-            <button className="update">Modifier</button>
-
+            <button onClick={()=>{
+              updateName(value.name)
+            }} className="update">Modifier</button>
           </div>
         )
       })}
