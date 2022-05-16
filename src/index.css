@@ -11,3 +11,23 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.green {
+  background-color: green;
+  color: white;
+}
+
+.delete {
+  background-color: red;
+  color: white;
+}
+
+.update {
+  background-color: orange;
+  color: white;
+}
+
+.colorgreen {
+  color: green;
+  font-size: 20px;
+}
