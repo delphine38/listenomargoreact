@@ -45,6 +45,7 @@ const deleteName = (nam) => {
 
   return (
     <div className="App">
+      
       <h1>Liste de noms des argonautes React, node, mysql</h1>
 
       <input 
@@ -54,16 +55,20 @@ const deleteName = (nam) => {
         onChange={(e)=> {
         setName(e.target.value);
       }} />
-      <button className="green" onClick={submitName}>Envoyer</button>
+      <button className="green mt-5 mb-5" onClick={submitName}>Envoyer</button>
+
+
+
 
 
       {/* affichage de la donnée */}
       {liste.map((value)=>{
         return(
           <div>
+            
             <h3>{value.name}</h3>
 
-            <h4 className="colorgreen"><u>Rafraichi</u> la page pour <u>voir</u> les résultats de la <u>modification</u> ou de la <u>suppression</u></h4>
+            {/* <h4 className="colorgreen"><u>Rafraichi</u> la page pour <u>voir</u> les résultats de la <u>modification</u> ou de la <u>suppression</u></h4> */}
 
 
             <button onClick={()=>{deleteName(value.name)}} id="deleteName" className="delete">Supprimer</button>
@@ -77,7 +82,10 @@ const deleteName = (nam) => {
           </div>
         )
       })}
-    </div>
+
+            <h4 className="colorgreen"><u>Rafraichi</u> la page pour <u>voir</u> les résultats de la <u>modification</u> ou de la <u>suppression</u></h4>
+
+      </div>
   );
 }
 
